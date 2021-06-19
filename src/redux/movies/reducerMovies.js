@@ -11,38 +11,31 @@ const initState = {
 
 const reducerMovies = (state= initState,action) =>
 {
-    console.log("Start Reducer Movies");
-
     switch (action.type) 
     {
         case MOVIES_LOAD:
-            {
-                return{
+            return{
                     ...state,
                     isLoading: true,
                     movies: [],
                     error: ""
                 }
-            }
+            
         case MOVIES_SUCESS:
-            {
-                return{
+            return{
                     ...state,
                     isLoading: false,
                     movies: action.paylod,
-                    error: ''
+                    error: ""
                 }
-            }
+            
         case MOVIES_ERROR:
-            {
-                return{
+            return{
                     ...state,
                     isLoading: false,
                     movies: [],
                     error: action.paylod
                 }
-            }
-    
         default: return state;
     }
 } 

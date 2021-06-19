@@ -2,7 +2,7 @@ import React from 'react'
 
 function Movie(props) 
 {
-    console.log(props.movie)
+    //console.log(props.movie)
 
     const {
         adult,

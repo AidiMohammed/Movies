@@ -1,53 +1,56 @@
 import React from 'react';
 import '../styles/components/navBar.css'
+import {Link} from 'react-router-dom'
 
 function NavBar() {
     return (
         <div className="nav-bar">
-            <div className="logo">
-                <i className="fas fa-film"></i>
+            <div style={{cursor:"pointer"}} className="logo">
+                <Link to ="/">
+                    <i className="fas fa-film"></i>
+                </Link>
             </div>
             <div className="navigation">
                 <ul>
                     <li>
-                        <a href="#">Filme</a>
+                        <Link to="#">Filme</Link>
                         <ul className="dropdown">
                             <li>
-                                <a href="#">Populaires</a>
+                                <Link to="/Movies/popular">Populaires</Link>
                             </li>
                             <li>
-                                <a href="#">Du moment</a>
+                                <Link to="/Movies/nowPlaying">Du moment</Link>
                             </li>
                             <li>
-                                <a href="#">A venir</a>
+                                <Link to="/Movies/upComing">A venir</Link>
                             </li>
                             <li>
-                                <a href="#">Les mieux notés</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">Artistes</a>
-                        <ul>
-                            <li>
-                                <a href="#">Les plus consultés</a>
+                                <Link to="/Movies/topRated">Les mieux notés</Link>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#">Emissions</a>
+                        Artistes
                         <ul>
                             <li>
-                                <a href="#">Populaires</a>
+                                <Link to="/Person/popular">Les plus consultés</Link>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <Link to="#">Emissions</Link>
+                        <ul>
+                            <li>
+                                <Link to="#">Populaires</Link>
                             </li>
                             <li>
-                                <a href="#">Diffusées aujourd'hui</a>
+                                <Link to="#">Diffusées aujourd'hui</Link>
                             </li>
                             <li>
-                                <a href="#">En cours de diffusion</a>
+                                <Link to="#">En cours de diffusion</Link>
                             </li>
                             <li>
-                                <a href="#">Les mieux notées</a>
+                                <Link to="#">Les mieux notées</Link>
                             </li>
                         </ul>
                     </li>

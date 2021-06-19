@@ -29,8 +29,6 @@ function Home()
     {
         const btnDay = document.querySelector('#Day');
         const btnWeek = document.querySelector('#Week');
-        
-        console.log(isLoading,error);
 
         if(isDayTrending)
             {
