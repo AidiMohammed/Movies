@@ -1,0 +1,78 @@
+.nav-bar{
+    background: #4682B4;
+    height: 5rem;
+    color: honeydew;
+    display: flex;
+}
+/*----- logo ------*/
+.logo{
+    height: 100%;
+    width: 130px;
+}
+.logo i{
+    font-size:4rem;
+    margin-left: 50%;
+    margin-top: 5%;
+    transform: translateX(-50%);
+    color:rgb(40, 46, 46)
+}
+/*----- navigation ------*/
+.navigation{
+    flex: 30%;
+    position: relative;
+}
+.navigation ul {
+    margin-top: 2%;
+    position: absolute;
+}
+.navigation ul li {
+    margin-left: 0rem;
+    width: 170px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    float: left;
+    color: #121212;
+    font-size: 14px;
+    position: relative;
+    cursor: pointer;
+}
+.navigation ul li ul{
+    margin-top: -10px;
+    background: rgb(240, 240, 240);
+    box-shadow: 5px 12px 25px rgba(180, 180, 180,0.9);
+    border-radius: 15px;
+    display: none;
+    z-index: 999;
+}
+.navigation ul li:hover{
+    color: rgba(22, 1, 104, 0.9);
+    font-size: 1rem;
+}
+.navigation ul li:hover > ul{
+    display: block;
+}
+/*----- search ------*/
+.search{
+    height: 100%;
+    width: 280px;
+    float: right;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+.search input
+{
+    margin: auto;
+    margin-top: -2%;
+    transform: translateY(50%);
+    position: absolute;
+    border: 2px solid #aaa;
+    border-radius: 18px;
+    outline: none;
+    padding: 8px;
+    box-sizing: border-box;
+    align-items: center;
+    box-shadow: 0px 0px 5px 5px rgb(240, 240, 240);
+}
