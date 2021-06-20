@@ -1,11 +1,13 @@
 import {
     MOVIES_LOAD,
     MOVIES_SUCESS,
-    MOVIES_ERROR} from './actionsTypes'
+    MOVIES_ERROR,
+    GET_MOVIE} from './actionsTypes'
 
 const initState = {
     isLoading: false,
     movies: [],
+    movie: {},
     error: ''
 }
 
@@ -18,7 +20,8 @@ const reducerMovies = (state= initState,action) =>
                     ...state,
                     isLoading: true,
                     movies: [],
-                    error: ""
+                    error: "",
+                    movie: {}
                 }
             
         case MOVIES_SUCESS:
@@ -26,7 +29,8 @@ const reducerMovies = (state= initState,action) =>
                     ...state,
                     isLoading: false,
                     movies: action.paylod,
-                    error: ""
+                    error: "",
+                    movie: {}
                 }
             
         case MOVIES_ERROR:
@@ -34,8 +38,18 @@ const reducerMovies = (state= initState,action) =>
                     ...state,
                     isLoading: false,
                     movies: [],
-                    error: action.paylod
+                    error: action.paylod,
+                    movie: {}
                 }
+        case GET_MOVIE:
+            {
+                return{
+                ...state,
+                isLoading: false,
+                movie: action.paylod,
+                error: ""
+                }
+            }
         default: return state;
     }
 } 

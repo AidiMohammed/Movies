@@ -1,8 +1,9 @@
-import {PERSON_LOAD,PERSON_SUCSSE,PERSON_ERROR} from './actionsTypes';
+import {PERSON_LOAD,PERSON_SUCSSE,PERSON_ERROR,GET_PERSON} from './actionsTypes';
 
 const initState = {
     isLoading: false,
     persons: [],
+    person: {},
     error: ""
 }
 
@@ -30,6 +31,13 @@ const reducerPersons = (state = initState,action) =>
                 isLoading: false,
                 persons: [],
                 error: action.paylod
+            }
+        case GET_PERSON:
+            return{
+                ...state,
+                isLoading: false,
+                person: action.paylod,
+                error: ""
             }
 
         default: return state;

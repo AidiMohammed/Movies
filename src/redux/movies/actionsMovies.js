@@ -1,7 +1,8 @@
 import {
     MOVIES_LOAD,
     MOVIES_SUCESS,
-    MOVIES_ERROR} from './actionsTypes';
+    MOVIES_ERROR,
+    GET_MOVIE} from './actionsTypes';
 import axios from 'axios';
 
 export const moviesAPILoad = () =>
@@ -24,6 +25,14 @@ export const moviesError = error =>
     return{
         type: MOVIES_ERROR,
         paylod: error
+    }
+}
+
+export const getMovie = movie =>
+{
+    return{
+        type: GET_MOVIE,
+        paylod: movie
     }
 }
 
@@ -104,5 +113,21 @@ export const GetNowPlaying = (num_page) =>
             dispatch(moviesSucess(res.data.results))
         })
         .catch(err => dispatch(moviesError(err.message)))
+    }
+}
+
+export const GetMovie = (id) =>
+{
+    
+    return dispatch =>{
+        
+        dispatch(moviesAPILoad())
+        const api_key = 'c3e344079e651daccf822dba7e739968';
+
+        axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${api_key}`)
+        .then(res => {
+            dispatch(getMovie(res.data))
+        }).catch(err => dispatch(moviesError(err.message)))
+            
     }
 }

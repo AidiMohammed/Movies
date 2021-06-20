@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 function Movie(props) 
 {
@@ -24,7 +25,7 @@ function Movie(props)
 
     return (
         <div>
-            Movie title : {original_title}
+            <Link to={`/Movies/movieDetails/${id}`}>Movie title : {original_title}</Link>
         </div>
     )
 }

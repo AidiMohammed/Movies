@@ -38,19 +38,19 @@ function NavBar() {
                         </ul>
                     </li>
                     <li>
-                        <Link to="#">Emissions</Link>
+                        Emissions
                         <ul>
                             <li>
-                                <Link to="#">Populaires</Link>
+                                <Link to="/TV/popular">Populaires</Link>
                             </li>
                             <li>
-                                <Link to="#">Diffusées aujourd'hui</Link>
+                                <Link to="/TV/airingToDay">Diffusées aujourd'hui</Link>
                             </li>
                             <li>
-                                <Link to="#">En cours de diffusion</Link>
+                                <Link to="/TV/onTheAir">En cours de diffusion</Link>
                             </li>
                             <li>
-                                <Link to="#">Les mieux notées</Link>
+                                <Link to="/TV/topRated">Les mieux notées</Link>
                             </li>
                         </ul>
                     </li>

@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 
 function Person(props)
 {
@@ -7,6 +8,7 @@ function Person(props)
     const {
         adult,
         gender,
+        id,
         known_for,
         known_for_department,
         name,
@@ -16,7 +18,7 @@ function Person(props)
 
     return (
         <div style={{background:"rgb(180,180,180)"}}>
-            name : {name}
+            <Link to={`/Person/personDetails/${id}`}>name : {name}</Link> 
         </div>
     )
 }
