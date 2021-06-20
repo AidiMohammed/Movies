@@ -1,10 +1,32 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import '../styles/components/navBar.css'
 import {Link} from 'react-router-dom'
+import {useDispatch,useSelector} from 'react-redux'
+import {onSerachString} from '../redux/SearchMulti/actionsSeach'
 
-function NavBar() {
+function NavBar() 
+{
+    const dispatch = useDispatch();
+    const results = useSelector(state => state.searchModules);
+
+    const [searchString,setSearchString] = useState("");
+
+
+    useEffect(() => {
+        if(searchString != '')
+            dispatch(onSerachString(searchString,1));
+    }, [searchString])
+
+    const onChangeSearchString = e =>
+    {
+        setSearchString(e.target.value)
+    }
+
     return (
         <div className="nav-bar">
+
+            {console.log(results)}
+
             <div style={{cursor:"pointer"}} className="logo">
                 <Link to ="/">
                     <i className="fas fa-film"></i>
@@ -57,7 +79,7 @@ function NavBar() {
                 </ul>                
             </div>
             <div className="search">
-                <input placeholder="Searsh " type="text" />
+                <input onChange={onChangeSearchString} value = {searchString} name ="SearchString" placeholder="Searsh " type="text" />
             </div>
         </div>
     )
