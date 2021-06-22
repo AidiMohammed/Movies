@@ -1,0 +1,6 @@
+.content-movies
+{
+    display:  grid;
+    grid-template-columns: auto auto;
+    
+}

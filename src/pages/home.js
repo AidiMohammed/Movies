@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react';
 import Movies from '../components/Movies/Movies';
 import {GetTrending} from '../redux/movies/actionsMovies'
 import {useDispatch,useSelector}from 'react-redux'
-
+import '../styles/pages/home.css';
 
 function Home() 
 {
@@ -31,23 +31,15 @@ function Home()
         const btnWeek = document.querySelector('#Week');
 
         if(isDayTrending)
-            {
-                btnDay.style.background= "red";
-                btnDay.style.color = "Azure";
-
-                btnWeek.style.background = "Azure";
-                btnWeek.style.color = "black";
-
+            {   
+                btnDay.classList.add('button-down');
+                btnWeek.classList.remove('button-down');
                 dispatch(GetTrending('day'));
             }
             else
             {
-                btnDay.style.background= "Azure";
-                btnDay.style.color = "black";
-
-                btnWeek.style.background = "red";
-                btnWeek.style.color = "Azure";
-
+                btnWeek.classList.add('button-down');
+                btnDay.classList.remove('button-down');
                 dispatch(GetTrending('week'));
             }
         
@@ -67,14 +59,14 @@ function Home()
 
     return (
         <div className="content-home">
-            <h1>Flimes en <span>Tendances</span> </h1>
-
-            <button onClick={toggleChoicePeriod} id="Day" style={{margin:"15px",width:"150px"}} >Aujourd'hui</button>
-            <button onClick={toggleChoicePeriod} id="Week" style={{width:"150px"}}>Cette semaine</button>
-            
-            <div className="content-listes">
-                <Movies />
+            <div className="content-choice-periode">
+                <h1>Flimes en <span>Tendances</span> </h1>
+                <div className="group-button">
+                    <button className="action-button shadow animate blue" onClick={toggleChoicePeriod} id="Day" >Aujourd'hui</button>
+                    <button className="action-button shadow animate blue " onClick={toggleChoicePeriod} id="Week">Cette semaine</button>                    
+                </div>
             </div>
+            <Movies />
         </div>
     )
 }
