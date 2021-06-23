@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Arvo&family=Domine:wght@600&display=swap');
+
+.titel-page{
+    text-align: center;
+}
+
+span{
+    font-family: Arvo;
+    font-weight: 900;
+    color: #4682B4;
+}
+
+h1{
+    font-family: Domine;
+}

@@ -2,6 +2,7 @@ import React,{useEffect} from 'react';
 import Movies from '../../components/Movies/Movies';
 import {useDispatch} from 'react-redux';
 import {GetNowPlaying} from '../../redux/movies/actionsMovies'
+import '../../styles/pages/movie/nowPlaying.css'
 
 function NowPlayingMovies() 
 {
@@ -13,7 +14,9 @@ function NowPlayingMovies()
 
     return (
         <div>
-            <h1>now playing Movies</h1>
+            <div className="titel-page">
+                <h1>Filmes <span>Du moment</span></h1>    
+            </div>
             <Movies />
         </div>
     )

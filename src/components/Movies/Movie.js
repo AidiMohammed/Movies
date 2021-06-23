@@ -47,7 +47,7 @@ function Movie(props)
                             </ul>
                         </div>
                     </div>
-                    <img class="blur-back bright-back" src={`https://image.tmdb.org/t/p/w500/${backdrop_path}`}/>
+                    <img class="blur-back bright-back" src={`https://image.tmdb.org/t/p/original/${backdrop_path}`}/>
                 </div>
             </Link>
         </div>

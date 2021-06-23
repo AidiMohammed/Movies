@@ -10,7 +10,21 @@ function Movies()
     return (
         <div className="content-movies">
             {
-                movies.length !== 0  ? movies.map(movie => <Movie movie={movie}/>) : null
+                movies.length !== 0  ? movies.map(movie => <Movie movie={movie}/>) 
+                : 
+                <div className="center-lds">
+                    <div className="lds-roller">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>                   
+                </div>
+
                 //movies.length !==0 ? <Movie movie={movies[0]}/> : null//c'est juste pour un test
             }
         </div>
