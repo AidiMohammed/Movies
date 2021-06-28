@@ -1,8 +1,9 @@
 import React,{useEffect} from 'react';
 import {useSelector,useDispatch} from 'react-redux'
 import {GetMovie} from '../../redux/movies/actionsMovies'
+import {GetCastsAndCrews} from '../../redux/persons/actionsPerson'
 import '../../styles/pages/movie/movieDetails.css'
-
+import CastsAndCrews from '../../components/Persons/CastsAndCrews';
 function MovieDetails(props) 
 {
     const dispatch = useDispatch();
@@ -35,19 +36,31 @@ function MovieDetails(props)
         vote_average,
         vote_count
         } = useSelector(state => state.moviesModules.movie);
-    
-    const yer = release_date;
         
     useEffect(async() =>
     {
         const {id} = props.match.params;
         dispatch(GetMovie(id));
+        dispatch(GetCastsAndCrews(id));
+        
     },[])
-
     return (
-        <div className="container-movieDetails">
-            {console.log(useSelector(s => s.moviesModules.movie))}
+        <div className="container-movieDetails content-pages">
             <div className="box back-drop back-drop-content">
+                {
+                    (isLoading) ?                 
+                    <div className="title-section">
+                        <h1 className="title">{original_title} <span> ({release_date}) </span> </h1>
+                        <div className="runtime-genres">
+                            <h3 className="runtime">{runtime} min</h3>
+                            {
+                                (genres !== undefined) ? genres.map(genre => <span className="genres" key = {genre.id}>{genre.name}</span> ) : null
+                            }
+                        </div>
+                    </div>
+                    :
+                    <h1>is loding</h1>
+                }
                 <div className="title-section">
                     <h1 className="title">{original_title} <span> ({release_date}) </span> </h1>
                     <div className="runtime-genres">
@@ -56,7 +69,6 @@ function MovieDetails(props)
                             (genres !== undefined) ? genres.map(genre => <span className="genres" key = {genre.id}>{genre.name}</span> ) : null
                         }
                     </div>
-                    
                 </div>
                 <div className="overviwe-section">
                     <h3>Overview </h3>
@@ -68,9 +80,20 @@ function MovieDetails(props)
             </div>
             <img className="box back-drop" src={`https://image.tmdb.org/t/p/original/${backdrop_path}`} alt={'movie title : ',title} />       
             <div className="box info-section">info section</div>
-            <div className="box cast-section">cast section</div>
-            <div className="box crew-section">crew section</div>
-            <div className="box foter-section">foter section</div>
+            <div className="box cast-section">
+                <div className="content-cast-section">
+                    <div className="cast-crew">
+                        <p className="crew">Acteurs</p>
+                    </div>
+                    <CastsAndCrews type="casts"/>
+                </div>
+            </div>
+            <div className="box crew-section">
+                <div className="cast-crew">
+                    <p className="crew">Equipages</p>
+                </div>
+                <CastsAndCrews type="crews"/>
+            </div>
         </div>
     )
 }

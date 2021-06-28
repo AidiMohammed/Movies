@@ -13,12 +13,9 @@ function NowPlayingMovies()
     })
 
     return (
-        <div>
-            <div className="titel-page">
-                <h1>Filmes <span>Du moment</span></h1>    
+            <div className="content-pages">
+                 <Movies />   
             </div>
-            <Movies />
-        </div>
     )
 }
 

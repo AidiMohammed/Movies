@@ -10,63 +10,18 @@ function Home()
     const {isLoading,error} = useSelector(state => state.moviesModules)
     const [isDayTrending,setIsDayTrending] = useState(true);
 
-    useEffect(() => 
-    {
-        if(isLoading )//ici pour desactiver les bouton au moment de connection à l'api
-            if(isDayTrending)
-                document.getElementById("Week").setAttribute("disabled",null);
-            else 
-                document.getElementById("Day").setAttribute("disabled",null);
-        else
-            {
-                document.getElementById("Day").removeAttribute("disabled");
-                document.getElementById("Week").removeAttribute("disabled");
-            }
-
-    }, [isLoading]);
-
-    useEffect(() => 
-    {
-        const btnDay = document.querySelector('#Day');
-        const btnWeek = document.querySelector('#Week');
-
-        if(isDayTrending)
-            {   
-                btnDay.classList.add('button-down');
-                btnWeek.classList.remove('button-down');
-                dispatch(GetTrending('day'));
-            }
-            else
-            {
-                btnWeek.classList.add('button-down');
-                btnDay.classList.remove('button-down');
-                dispatch(GetTrending('week'));
-            }
-        
-    }, [isDayTrending]);
-
-    const toggleChoicePeriod = (e) =>
-    {
-        if(e.target.id === "Day")
-            setIsDayTrending(true);
-
-        else if(e.target.id === "Week")
-            setIsDayTrending(false);
-
-        else
-            console.error(e.target.id);
-    }
-
     return (
-        <div className="content-home">
-            <div className="content-choice-periode">
-                <h1>Flimes en <span>Tendances</span> </h1>
-                <div className="group-button">
-                    <button className="action-button shadow animate blue" onClick={toggleChoicePeriod} id="Day" >Aujourd'hui</button>
-                    <button className="action-button shadow animate blue " onClick={toggleChoicePeriod} id="Week">Cette semaine</button>                    
+        <div className="content-pages">
+            <div className="content-home">
+                <div className="header-home">
+                    <h1 className="title-page">Filmes en tendance</h1>
+                    <div className="container-buttons">
+                        <button className="btn btn-1 btn-active">Aujourd'hui</button>
+                        <button className="btn btn-2">Cette semaine</button>                        
+                    </div>
                 </div>
+                <Movies/>    
             </div>
-            <Movies />
         </div>
     )
 }

@@ -13,13 +13,10 @@ function UpComingMovies()
     })
 
     return (
-        <div>
-            <div className="titel-page">
-                <h1>Filmes <span>À venir</span></h1>     
-            </div>
-              
-            <Movies />
-        </div>
+    <div className="content-pages">
+        <h1>Filmes <span>À venir</span></h1>
+        <Movies />
+    </div>
     )
 }
 

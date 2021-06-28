@@ -1,20 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=PT+Serif:wght@400;700&family=Playfair+Display&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Arvo&family=Domine:wght@600&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Domine:wght@600&display=swap');
 *{
     margin: 0;
     padding: 0;
-    list-style-type: none;
-    text-decoration: none;
     box-sizing: border-box;
-    margin: 0;
-}
-                                        /*----------- App Component ----------*/
-.container{
-    margin: 0 15% 0 15%;
-    font-family: 'Libre Baskerville', sans-serif;
-    margin:  0 auto;
-    max-width: 1300px;
-    position: relative;
+    font-family: "Domine";
+    font-size: 1.2rem;
 }
 
+.content-pages{
+    margin-left: 330px;
+}

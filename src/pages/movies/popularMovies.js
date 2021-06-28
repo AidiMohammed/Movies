@@ -13,11 +13,11 @@ function PopularMovies()
     })
 
     return (
-        <div>
-            <div className="titel-page">
-                <h1>Filmes <span>Populaires</span> </h1>    
+        <div className="content-pages">
+            <div className="popular-content">
+                <Movies />    
             </div>
-            <Movies />
+            
         </div>
     )
 }
