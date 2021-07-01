@@ -10,26 +10,36 @@ function PopularMovies()
     const {isLoading,page_num} = useSelector(state => state.moviesModules)
     useEffect(() => {
         dispatch(RestState());
-        dispatch(GetPopular(1));
-        console.log(page_num)
-    },[])
+        dispatch(GetPopular(page_num));
+    },[]);
 
     const nextpage = () =>{
-        console.log(page_num)
         dispatch(GetPopular(page_num))
     }
-
+    //scroll infini
+    /*window.addEventListener('scroll',() =>
+    {
+        const {scrollTop,scrollHeight,clientHeight} = document.documentElement;
+        if(clientHeight+scrollTop === scrollHeight)
+        {
+            console.log(page_num);
+            dispatch(GetPopular(page_num));
+        }
+        
+    })*/
     return (
         <div className="content-pages">
             <div className="content-popular">
                 <h1 className="title-page">Filmes populaires</h1>
                 <Movies />    
             </div>
+            <div className="content-popular">
             {
-                (!isLoading) ? <div className="content-popular"><button className="btn btn-showMore" onClick={nextpage}>Afficher Plus ...</button></div>
+                (!isLoading) ? <button className="btn btn-showMore" onClick={nextpage}>Afficher Plus ...</button>
                 :
-                <div className="content-popular"><div className="content"><div className="lds-roller content-pages"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div></div> 
+                <div className="content"><div className="lds-roller content-pages"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>
             }
+            </div>
         </div>
     )
 }

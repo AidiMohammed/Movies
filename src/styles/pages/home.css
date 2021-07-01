@@ -3,6 +3,13 @@
     height: 125px;/*125*/
     background: #1e1e1e;
 }
+.content-home{
+    text-align: center;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-top: 3%;
+    width: 1000px;
+}
 
 .container-buttons{
     height: 80px;

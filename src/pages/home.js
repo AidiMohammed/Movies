@@ -62,24 +62,6 @@ function Home()
         dispatch(GetTrending('day',page_num))
     }
 
-    /*window.addEventListener('scroll',() =>
-    {
-        //const {scrollTop,scrollHeight,clientHeight} = document.documentElement;
-        //console.log(scrollTop,scrollHeight,clientHeight)
-
-        if(clientHeight+scrollTop === scrollHeight)
-            {
-                if(isLoading === false)
-                {
-                    if(isDayTrending)
-                        dispatch(GetTrending("day",page_num));
-                    else
-                        dispatch(GetTrending("week",page_num));                   
-                }
-                
-            }
-    })*/
-
     return (
         <div className="content-pages">
             <div className="content-home">
@@ -92,6 +74,11 @@ function Home()
                 </div>
                 <Movies/>    
             </div>
+            {
+                (!isLoading) ? <div className="content-home"><button className="btn btn-showMore" onClick={nextpage}>Afficher Plus ...</button></div>
+                :
+                <div className="content-home"><div className="content"><div className="lds-roller content-pages"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div></div>
+            }
         </div>
     )
 }

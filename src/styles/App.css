@@ -21,3 +21,10 @@
     color: whitesmoke;
     letter-spacing: 1px;
 }
+
+.btn-showMore{
+    padding: 25px;
+    width: 50%;
+    background: #3d3d3d;
+    border-radius: 5px;
+}
