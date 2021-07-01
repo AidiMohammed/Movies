@@ -1,17 +1,11 @@
 .header-home{
     width: 100%;
-    height: 160px;/*125*/
+    height: 125px;/*125*/
     background: #1e1e1e;
 }
-.title-page{
-    padding: 5px;
-    justify-content: center;
-    text-align: center;
-    color: whitesmoke;
-    letter-spacing: 1px;
-}
+
 .container-buttons{
-    height: 90px;
+    height: 80px;
     display: flex;
     justify-content: center;
 }
@@ -28,13 +22,13 @@
     -webkit-transition: all 0.4s;
     -moz-transition: all 0.4s;
     transition: all 0.4s;
-    border-radius: 10px;
+    border-left: 10px solid transparent;
 }
 
 .btn:hover{
-    background-color: rgb(170, 170, 170);
-    color: black;
-    border: none;
+    color: rgb(54, 190, 190);
+    background: #242424;
+    border-left-color: cyan;
     -webkit-transition:  all 0.4s;
     -moz-transition: all 0.4s;
     transition: all 0.4s;
@@ -43,4 +37,8 @@
 .btn-active{
     text-shadow: 0 0 8px cyan;
 
+}
+
+.btn-deactivate{
+    color: rgb(49,49,49);
 }

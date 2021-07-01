@@ -5,8 +5,19 @@
     box-sizing: border-box;
     font-family: "Domine";
     font-size: 1.2rem;
+    background: rgb(30, 30, 30);
 }
 
 .content-pages{
     margin-left: 330px;
+    background: rgb(30, 30, 30);
+    height: 100%;
+}
+
+.title-page{
+    padding: 5px;
+    justify-content: center;
+    text-align: center;
+    color: whitesmoke;
+    letter-spacing: 1px;
 }

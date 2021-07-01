@@ -1,3 +1,44 @@
 .content-movie{
-    border: 1px solid teal;
+    height: 350px;
+    width: 230px;
+    position: relative;
+}
+
+.img-content{
+    height: 350px;
+    width: 230px;
+    border-radius: 3%;
+    transition: 0.5s;
+}
+.title{
+    width: 230px;
+    position: absolute;
+    font-size: 1.5rem;
+    font-weight: 700;
+    z-index: 1;
+    text-align: center;
+    left: 50%;
+    top: 50%;
+    opacity: 0;
+    transform: translateX(-50%);
+    transition: 0.5s;
+    color: rgb(233, 233, 233);
+    background: transparent;
+}
+
+
+.link:hover .img-content{
+    box-shadow: 0 0 8px 8px rgb(138, 137, 137);
+    transform: translateY(-12px);
+    opacity: 0.5;
+}
+
+.link:hover .title
+{
+    width: 230px;
+    height: 50%;
+    opacity: 1;
+    transform: translateX(-50%);
+    top: -12px;
+    transition: 0.3;
 }

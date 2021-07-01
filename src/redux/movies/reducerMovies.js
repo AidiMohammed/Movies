@@ -2,13 +2,15 @@ import {
     MOVIES_LOAD,
     MOVIES_SUCESS,
     MOVIES_ERROR,
-    GET_MOVIE} from './actionsTypes'
+    GET_MOVIE,
+    REST_STATE} from './actionsTypes'
 
 const initState = {
     isLoading: false,
     movies: [],
     movie: {},
-    error: ''
+    error: '',
+    page_num: 1
 }
 
 const reducerMovies = (state= initState,action) =>
@@ -19,20 +21,23 @@ const reducerMovies = (state= initState,action) =>
             return{
                     ...state,
                     isLoading: true,
-                    movies: [],
                     error: "",
                     movie: {}
                 }
             
         case MOVIES_SUCESS:
+            {
+                const newListesMovies = [...state.movies,...action.paylod]
+                console.log("new list Movies",newListesMovies," | page num : ",state.page_num)
             return{
                     ...state,
                     isLoading: false,
-                    movies: action.paylod,
+                    movies: newListesMovies,
                     error: "",
-                    movie: {}
+                    movie: {},
+                    page_num: state.page_num+1
                 }
-            
+            }
         case MOVIES_ERROR:
             return{
                     ...state,
@@ -42,13 +47,19 @@ const reducerMovies = (state= initState,action) =>
                     movie: {}
                 }
         case GET_MOVIE:
-            {
-                return{
-                ...state,
-                isLoading: false,
-                movie: action.paylod,
-                error: ""
+            return{
+                    ...state,
+                    isLoading: false,
+                    movie: action.paylod,
+                    error: ""
                 }
+        case REST_STATE:
+            return{
+                isLoading: false,
+                movies: [],
+                movie: {},
+                error: "",
+                page_num: 1
             }
         default: return state;
     }

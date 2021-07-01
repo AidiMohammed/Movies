@@ -68,4 +68,5 @@ nav ul{
     top: 50%;
     right: 20px;
     transition: 0.5s;
+    background: transparent;
 }

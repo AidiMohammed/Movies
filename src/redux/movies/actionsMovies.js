@@ -2,7 +2,8 @@ import {
     MOVIES_LOAD,
     MOVIES_SUCESS,
     MOVIES_ERROR,
-    GET_MOVIE} from './actionsTypes';
+    GET_MOVIE,
+    REST_STATE} from './actionsTypes';
 import axios from 'axios';
 
 export const moviesAPILoad = () =>
@@ -36,7 +37,15 @@ export const getMovie = movie =>
     }
 }
 
-export const GetTrending = (time_window) =>
+export const resetState = () =>{
+    return{
+        type: REST_STATE
+    }
+}
+
+//------------------------
+
+export const GetTrending = (time_window,num_page) =>
 {
 
     return dispatch =>
@@ -45,7 +54,7 @@ export const GetTrending = (time_window) =>
 
         const api_key= 'c3e344079e651daccf822dba7e739968';
 
-        axios.get(`https://api.themoviedb.org/3/trending/movie/${time_window}?api_key=${api_key}`)
+        axios.get(`https://api.themoviedb.org/3/trending/movie/${time_window}?api_key=${api_key}&page=${num_page}`)
             .then(res =>{
                 dispatch(moviesSucess(res.data.results))
             })
@@ -129,5 +138,11 @@ export const GetMovie = (id) =>
             dispatch(getMovie(res.data))
         }).catch(err => dispatch(moviesError(err.message)))
             
+    }
+}
+
+export const RestState = () =>{
+    return dispatch =>{
+        dispatch(resetState());
     }
 }
