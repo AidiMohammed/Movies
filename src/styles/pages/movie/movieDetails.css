@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital@1&display=swap');
+
+.content-wrapper{
+    width: 75%;
+    position: relative;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    
+}
+
+.card{
+}
+
+.img-backdrop{
+    width: 100%;
+}
+
+.text-wrapper{
+    position: absolute;
+    bottom: 0;
+    background: rgba(30,30,30,0.7) ;
+    width: 100%;
+}
+
+.title-movie{
+    font-size: 35px;
+    color: rgb(143, 212, 3);
+    padding: 15px;
+    background: transparent;
+    font-family: Merriweather sans-serif;
+}
+
+
+.realase-date{
+    background: transparent;
+    font-size: 20px;
+    padding: 15px;
+    font-family: Merriweather sans-serif;
+}
+
+.overview{
+    background: transparent;
+    font-size: 5px;
+}
+
+.overview-text{
+    background: transparent;
+    background: transparent;
+    font-size: 15px;
+    padding: 15px;
+}

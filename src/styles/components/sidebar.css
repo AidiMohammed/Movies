@@ -7,16 +7,38 @@
     height: 100%;
     background: #1b1b1b;
 }
-.sidebar .text{
-    color: white;
+.sidebar .login{
+    color: cyan;
     font-size: 25px;
     font-weight: 600;
     line-height: 65px;
     text-align: center;
-    background: #1e1e1e;
     letter-spacing: 1px;
+    height: 325px;
+}
+.sidebar .login a{
+    text-decoration: none;
 }
 
+.sidebar .login a:hover{
+    color: rgb(105,105,105);
+}
+.fa-user-circle{
+    background: transparent;
+    font-size: 250px;
+    cursor: pointer;
+    color: cyan;
+
+}
+.fa-user-circle:hover{
+    color: rgb(105, 105, 105);
+}
+.fa-user-circle:hover {
+
+}
+.sidebar .login h3{
+    color: cyan;
+}
 nav ul{
     background: #1b1b1b;
     height: 100%;

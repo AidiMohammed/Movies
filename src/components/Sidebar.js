@@ -8,6 +8,7 @@ function SideBar()
 {
     const dispatch = useDispatch();
     const results = useSelector(state => state.searchModules);
+    const islogin = useSelector(state => state.acountModules);
     
     const [searchString,setSearchString] = useState("");
     const [togglesNavbar,setTogglesNavbar] = useState({
@@ -93,7 +94,12 @@ function SideBar()
 
     return (
         <nav className="sidebar">
-            <div className="text">Side Menu</div>
+            <div className="login">
+                <Link to="/login">
+                    <span className="fa fa-user-circle "></span>    
+                    {islogin === true ? <h3>Se deconnecter</h3>:<h3>Se connecter </h3>}
+                </Link>
+            </div>
             <ul>
                 <li><Link className="buttons-sidebar" to="/">Home</Link></li>
                 <li>

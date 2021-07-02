@@ -45,54 +45,18 @@ function MovieDetails(props)
         
     },[])
     return (
-        <div className="container-movieDetails content-pages">
-            <div className="box back-drop back-drop-content">
-                {
-                    (isLoading) ?                 
-                    <div className="title-section">
-                        <h1 className="title">{original_title} <span> ({release_date}) </span> </h1>
-                        <div className="runtime-genres">
-                            <h3 className="runtime">{runtime} min</h3>
-                            {
-                                (genres !== undefined) ? genres.map(genre => <span className="genres" key = {genre.id}>{genre.name}</span> ) : null
-                            }
+        <div className="content-pages">
+            <div className="content-wrapper">
+                <div className="card">
+                    <img className="img-backdrop" src={`https://image.tmdb.org/t/p/original/${backdrop_path}`} alt={original_title} />
+                    <div className="text-wrapper">
+                        <h2 className="title-movie">{original_title}</h2>
+                        <div className="realase-date">{release_date}</div>
+                        <div className="overview">
+                            <p className="overview-text">{overview}</p>
                         </div>
                     </div>
-                    :
-                    <h1>is loding</h1>
-                }
-                <div className="title-section">
-                    <h1 className="title">{original_title} <span> ({release_date}) </span> </h1>
-                    <div className="runtime-genres">
-                        <h3 className="runtime">{runtime} min</h3>
-                        {
-                            (genres !== undefined) ? genres.map(genre => <span className="genres" key = {genre.id}>{genre.name}</span> ) : null
-                        }
-                    </div>
                 </div>
-                <div className="overviwe-section">
-                    <h3>Overview </h3>
-                    <p>{overview}</p>
-                </div>
-                <div className="social-section">
-
-                </div>
-            </div>
-            <img className="box back-drop" src={`https://image.tmdb.org/t/p/original/${backdrop_path}`} alt={'movie title : ',title} />       
-            <div className="box info-section">info section</div>
-            <div className="box cast-section">
-                <div className="content-cast-section">
-                    <div className="cast-crew">
-                        <p className="crew">Acteurs</p>
-                    </div>
-                    <CastsAndCrews type="casts"/>
-                </div>
-            </div>
-            <div className="box crew-section">
-                <div className="cast-crew">
-                    <p className="crew">Equipages</p>
-                </div>
-                <CastsAndCrews type="crews"/>
             </div>
         </div>
     )

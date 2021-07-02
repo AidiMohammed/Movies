@@ -54,7 +54,7 @@ export const GetTrending = (time_window,num_page) =>
 
         const api_key= 'c3e344079e651daccf822dba7e739968';
 
-        axios.get(`https://api.themoviedb.org/3/trending/movie/${time_window}?api_key=${api_key}&page=${num_page}`)
+        axios.get(`https://api.themoviedb.org/3/trending/movie/${time_window}?api_key=${api_key}&page=${num_page}&language=fr`)
             .then(res =>{
                 dispatch(moviesSucess(res.data.results))
             })
@@ -72,7 +72,7 @@ export const GetPopular = (num_page) =>
         dispatch(moviesAPILoad())
         const api_key= 'c3e344079e651daccf822dba7e739968';
 
-        axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&language=en-US&page=${num_page}`)
+        axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&language=en-US&page=${num_page}&language=fr`)
         .then(res => {
             dispatch(moviesSucess(res.data.results))
         })
@@ -87,7 +87,7 @@ export const GetTopRated = (num_page) =>
         dispatch(moviesAPILoad())
         const api_key= 'c3e344079e651daccf822dba7e739968';
 
-        axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${api_key}&language=en-US&page=${num_page}`)
+        axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${api_key}&language=en-US&page=${num_page}&language=fr`)
         .then(res => {
             dispatch(moviesSucess(res.data.results))
         })
@@ -102,7 +102,7 @@ export const GetUpComing = (num_page) =>
         dispatch(moviesAPILoad())
         const api_key= 'c3e344079e651daccf822dba7e739968';
 
-        axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${api_key}&language=en-US&page=${num_page}`)
+        axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${api_key}&language=en-US&page=${num_page}&language=fr`)
         .then(res => {
             dispatch(moviesSucess(res.data.results))
         })
@@ -117,7 +117,7 @@ export const GetNowPlaying = (num_page) =>
         dispatch(moviesAPILoad())
         const api_key= 'c3e344079e651daccf822dba7e739968';
 
-        axios.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${api_key}&language=en-US&page=${num_page}`)
+        axios.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${api_key}&language=en-US&page=${num_page}&language=fr`)
         .then(res => {
             dispatch(moviesSucess(res.data.results))
         })
@@ -133,7 +133,7 @@ export const GetMovie = (id) =>
         dispatch(moviesAPILoad())
         const api_key = 'c3e344079e651daccf822dba7e739968';
 
-        axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${api_key}`)
+        axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${api_key}&language=fr`)
         .then(res => {
             dispatch(getMovie(res.data))
         }).catch(err => dispatch(moviesError(err.message)))
