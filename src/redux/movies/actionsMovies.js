@@ -6,6 +6,7 @@ import {
     REST_STATE} from './actionsTypes';
 import axios from 'axios';
 
+//--------------- actions
 export const moviesAPILoad = () =>
 {
     return{
@@ -43,7 +44,7 @@ export const resetState = () =>{
     }
 }
 
-//------------------------
+//------------------------ dispatchers
 
 export const GetTrending = (time_window,num_page) =>
 {

@@ -27,7 +27,6 @@ function Movie(props)
     return (
 
         <div className="content-movie">
-            {console.log(props.movie)}
             {
                 (props.movie.length !== 0) ? 
                             <Link className="link" to={`/Movies/movieDetails/${id}`}>

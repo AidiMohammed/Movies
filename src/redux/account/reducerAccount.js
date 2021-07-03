@@ -1,4 +1,4 @@
-import {IS_LOGINE} from './actionsTypes'
+import {IS_LOGIN,LODING,GET_DETAILS} from './actionsTypes'
 
 const initState = {
     islogin: false,
@@ -16,12 +16,19 @@ const initState = {
 const reducerAccount = (state = initState, action) =>
 {
     switch (action.type) {
-        case IS_LOGINE:
+        case IS_LOGIN:
+            {
+                console.log("**** toggle islogin ****")
+                return{
+                    ...state,
+                    islogin: !state.islogin
+                }
+            }
+        case GET_DETAILS:
             return{
                 ...state,
-                islogin: !state.islogin
+                detailsAccount: action.paylod
             }
-    
         default: return state;
     }
 }

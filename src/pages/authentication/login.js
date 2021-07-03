@@ -2,7 +2,7 @@ import React,{useEffect,useState} from 'react'
 import '../../styles/pages/authentication/login.css'
 import axios from 'axios'
 import {useDispatch} from 'react-redux'
-import {IsLogine} from '../../redux/account/actionsAccount'
+import {IsLogin} from '../../redux/account/actionsAccount'
 
 function Login(props) 
 {
@@ -23,15 +23,15 @@ function Login(props)
             .catch(err => setDataLogin({...dataLogin,err: err.message}))
     },[])
 
-    const {pseudo,password,err} = dataLogin;
+    const {pseudo,password,err,token} = dataLogin;
 
     const submitLogin = async (e) =>{
         e.preventDefault();
 
         const data = {
-                "username": dataLogin.pseudo,
-                "password": dataLogin.password,
-                "request_token": dataLogin.token
+                "username": pseudo,
+                "password": password,
+                "request_token": token
             }
         console.log("Data : ",data)
         
@@ -44,7 +44,7 @@ function Login(props)
                     axios.post("https://api.themoviedb.org/3/authentication/session/new?api_key=c3e344079e651daccf822dba7e739968",token_valid)
                         .then(res => {
                                 localStorage.setItem("session_id",res.data.session_id);
-                                dispatch(IsLogine());
+                                dispatch(IsLogin());
                                 props.history.push("/");
                             })
                         .catch(err => {
@@ -69,7 +69,7 @@ function Login(props)
             <div class="container">
                 <div class="wrapper">
 
-                    <div class="title-form"><span>Se connecter avec votre compte 'TMDB'</span></div>
+                    <div class="title-form"><span>Se connecter avec votre compte 'TMDB' !</span></div>
                     <form onSubmit={submitLogin}>
                         <div class="row">
                             <i class="fas fa-user"></i>
@@ -83,7 +83,7 @@ function Login(props)
                         <div class="row button">
                             <input type="submit" value="Login"/>
                         </div>
-                        <div class="signup-link">Pas un membre ? <a href="#">S'inscrire maintenant</a></div>
+                        <div class="signup-link">Pas un membre ? <a href="https://www.themoviedb.org/signup">S'inscrire maintenant</a></div>
                     </form>
                 </div>
             </div>

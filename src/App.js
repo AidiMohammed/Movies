@@ -12,6 +12,7 @@ import onTheAirTV from "./pages/TVShows/onTheAirTV";
 import popularTV from "./pages/TVShows/popularTV";
 import topRatedTV from "./pages/TVShows/topRatedTV";
 import login from "./pages/authentication/login"
+import logout from "./pages/authentication/logout"
 import pageNotfound from "./pages/pageNotfound";
 import Sidebar from './components/Sidebar'
 
@@ -41,6 +42,7 @@ function App() {
               <Route exact path="/TV/topRated" component={topRatedTV}/>
               <Route exact path="/TV/TVShowDetailes/:id" component={TVShowDetails}/>
               <Route exact path="/login" component={login}/>
+              <Route exact path="/logout" component={logout}/>
             </Provider>
         </Switch>
       </Router>

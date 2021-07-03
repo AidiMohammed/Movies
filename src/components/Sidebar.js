@@ -3,13 +3,15 @@ import '../styles/components/sidebar.css'
 import {Link} from 'react-router-dom'
 import {useDispatch,useSelector} from 'react-redux'
 import {onSerachString} from '../redux/SearchMulti/actionsSeach'
+import {GetDetails} from '../redux/account/actionsAccount'
 
 function SideBar() 
 {
     const dispatch = useDispatch();
     const results = useSelector(state => state.searchModules);
-    const islogin = useSelector(state => state.acountModules);
-    
+
+    const {islogin,detailsAccount} = useSelector(state => state.acountModules);
+    const [login,setLogin] = useState(islogin)
     const [searchString,setSearchString] = useState("");
     const [togglesNavbar,setTogglesNavbar] = useState({
             filmes_btn:false,
@@ -18,6 +20,12 @@ function SideBar()
             });
 
 
+    useEffect(() =>{
+        setLogin(islogin);
+        const sessionID = localStorage.getItem("session_id");
+        dispatch(GetDetails(sessionID));
+    },[])
+
     useEffect(() => {
         if(searchString != '')
             dispatch(onSerachString(searchString,1));
@@ -25,7 +33,7 @@ function SideBar()
     }, [searchString])
 
     useEffect(() =>{
-        
+    
         const filmesSubmenu = document.querySelector(".filme-submenu");
         const TVShowsSubmenu = document.querySelector(".TVShow-submenu");
         const personSubmenu = document.querySelector(".person-submenu");
@@ -92,13 +100,21 @@ function SideBar()
         setTogglesNavbar({...togglesNavbar,[e.target.name]: !togglesNavbar[e.target.name]})       
     }
 
+    const authentication =  islogin ? 
+                            <Link to="/logout">  
+                                <img src={`https://image.tmdb.org/t/p/w500/${detailsAccount.avatar.tmdb.avatar_path}`} alt="avatar user" />
+                                <h3>Se deconnecter</h3>
+                                <h6>user : {detailsAccount.username}</h6>
+                            </Link>
+                            :
+                            <Link to="/login"> 
+                                <span className="fa fa-user-circle "></span> 
+                                <h3>Se connecter</h3>
+                            </Link>
     return (
         <nav className="sidebar">
-            <div className="login">
-                <Link to="/login">
-                    <span className="fa fa-user-circle "></span>    
-                    {islogin === true ? <h3>Se deconnecter</h3>:<h3>Se connecter </h3>}
-                </Link>
+            <div className="login">   
+                {authentication}
             </div>
             <ul>
                 <li><Link className="buttons-sidebar" to="/">Home</Link></li>

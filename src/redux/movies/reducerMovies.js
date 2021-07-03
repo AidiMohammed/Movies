@@ -28,7 +28,6 @@ const reducerMovies = (state= initState,action) =>
         case MOVIES_SUCESS:
             {
                 const newListesMovies = [...state.movies,...action.paylod]
-                console.log("new list Movies",newListesMovies," | page num : ",state.page_num)
             return{
                     ...state,
                     isLoading: false,

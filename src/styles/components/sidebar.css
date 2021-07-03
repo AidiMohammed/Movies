@@ -33,9 +33,7 @@
 .fa-user-circle:hover{
     color: rgb(105, 105, 105);
 }
-.fa-user-circle:hover {
 
-}
 .sidebar .login h3{
     color: cyan;
 }
@@ -91,4 +89,10 @@ nav ul{
     right: 20px;
     transition: 0.5s;
     background: transparent;
+}
+
+.sidebar .login img{
+    width: 250px;
+    height: 250ps;
+    border-radius: 50%;
 }
