@@ -11,7 +11,7 @@ function Movies(props)
 
     return (
         <div className="content-movies">
-            {movies.map(movie => <Movie key ={movie.id} movie={movie}/>)}
+            {movies.map((movie,index) => <Movie key ={index} movie={movie}/>)}
         </div>
     )
 }

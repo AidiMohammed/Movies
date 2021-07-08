@@ -12,9 +12,10 @@ import onTheAirTV from "./pages/TVShows/onTheAirTV";
 import popularTV from "./pages/TVShows/popularTV";
 import topRatedTV from "./pages/TVShows/topRatedTV";
 import login from "./pages/authentication/login"
-import logout from "./pages/authentication/logout"
+import Profile from "./pages/authentication/Profile"
 import pageNotfound from "./pages/pageNotfound";
 import Sidebar from './components/Sidebar'
+
 
 import {Provider} from 'react-redux'
 import {BrowserRouter as Router, Route,Switch} from 'react-router-dom'
@@ -42,7 +43,7 @@ function App() {
               <Route exact path="/TV/topRated" component={topRatedTV}/>
               <Route exact path="/TV/TVShowDetailes/:id" component={TVShowDetails}/>
               <Route exact path="/login" component={login}/>
-              <Route exact path="/logout" component={logout}/>
+              <Route exact path="/profile/:user" component={Profile}/>
             </Provider>
         </Switch>
       </Router>

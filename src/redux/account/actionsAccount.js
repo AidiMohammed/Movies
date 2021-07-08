@@ -1,56 +1,62 @@
-import axios from 'axios'
-import {IS_LOGIN,GET_DETAILS,LODING} from './actionsTypes'
+import axios from 'axios';
+import {SET_DETAILS,LODING,RESET_STATE,AUTHENTICATION} from './actionsTypes';
 
-export const islogin = () =>
+//***************** Actions ***************** 
+
+const Action_resetState = () =>
 {
     return{
-        type: IS_LOGIN
+        type: RESET_STATE
     }
 }
 
-export const loding = () =>
+export const Action_loding = () =>
 {
     return{
         type: LODING
     }
 }
 
-export const getDetails = data =>
+const Action_setDetails = data =>
 {
     return{
-        type: GET_DETAILS,
+        type: SET_DETAILS,
         paylod: data
     }
 }
 
-export const IsLogin = () =>
+const Action_authentication = data =>
 {
-    return dispatch =>
-    {
-        dispatch(islogin());
+    return{
+        type: AUTHENTICATION,
+        paylod: data
     }
 }
 
-export const Loding = () =>
+//***************** Dispatch ***************** 
+
+export const DispatchResetState = () =>
 {
-    return dispatch =>
-    {
-        dispatch(loding());
+    return dispatch =>{
+        dispatch(Action_resetState());
     }
 }
 
-export const GetDetails = session_id =>
+export const DispatchLoding = () =>
 {
     return dispatch =>
     {
-        dispatch(loding());
-
-        axios.get(`https://api.themoviedb.org/3/account?api_key=c3e344079e651daccf822dba7e739968&session_id=${session_id}`)
-            .then(res => {
-                dispatch(getDetails(res.data))
-                console.log("RES DATA : ",res.data)
-            })
-            .catch(err => console.error(err.message))
-
+        dispatch(Action_loding());
     }
 }
+
+export const DispatchAuthentication = (sessionUser) => 
+{
+    return dispatch => dispatch(Action_authentication(sessionUser))
+}
+
+
+export const DispatchSetDetails = data =>
+{
+    return dispatch => dispatch(Action_setDetails(data))
+} 

@@ -2,6 +2,7 @@
     height: 350px;
     width: 230px;
     position: relative;
+    overflow: initial;
 }
 
 .img-content{
@@ -9,6 +10,8 @@
     width: 230px;
     border-radius: 3%;
     transition: 0.5s;
+    border: 2px solid yellow;
+    
 }
 .title{
     width: 230px;
@@ -33,6 +36,10 @@
     opacity: 0.5;
 }
 
+.link:hover .content-movie{
+    transform: translateY(-12px);
+}
+
 .link:hover .title
 {
     width: 230px;
@@ -41,4 +48,72 @@
     transform: translateX(-50%);
     top: -12px;
     transition: 0.3;
+}
+.container-actions{
+    margin-bottom: 1px;
+    transition: all 0.3s;
+    background: transparent;
+}
+.container-actions ul{
+    opacity: 1;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    justify-content: space-between;
+    position: absolute;
+    top: 0px;
+    margin-left: 50%;
+    margin-top: 50%;
+    transform: translateX(-50%);
+    background: transparent;
+    width: 98%;
+    height: 8%;
+    margin-top: 133%;
+    background: rgba(0,0,0,0.5);
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 3px;
+}
+.container-actions ul li 
+{
+    font-size: 1px;
+    justify-content: space-between;
+    border-radius: 50%;
+    background: transparent;
+}
+
+.container-actions ul li i 
+{
+    font-size: 0px;
+    color: cyan;
+    background-color: transparent;
+    justify-content: space-between;
+    font-size: 20px;
+    transition: all 0.5s;
+    cursor: pointer;
+    padding-top: 5px;
+}
+
+.link:hover .container-actions ul{
+    opacity: 1;
+    margin-top: 134%;
+    transition: all 0.5s;
+    background: transparent;
+}
+
+.link{
+    background-color: transparent;
+}
+
+.container-actions ul li i:hover{
+    transition: all 0.5s;
+    color: rgb(185, 143, 37);
+    transform: translateY(-3px);
+}
+.container-actions ul li .action-validate{
+    background-color: transparent;
+    color: goldenrod;
+}
+.link{
 }

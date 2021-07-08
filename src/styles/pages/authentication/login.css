@@ -8,8 +8,8 @@
 }
 .container{
   max-width: 440px;
-  padding: 0 20px;
-  margin: 170px auto;
+  margin: 0 auto;
+  transform: translateY(50%);
 }
 .wrapper{
   width: 100%;
@@ -18,9 +18,9 @@
 }
 .wrapper .title-form{
   height: 90px;
-  background: #16a085;
+  background: cyan;
   border-radius: 5px 5px 0 0;
-  color: #fff;
+  color: rgb(41, 41, 41);
   font-size: 30px;
   font-weight: 600;
   display: flex;
@@ -49,10 +49,11 @@
   font-size: 16px;
   transition: all 0.3s ease;
   color: cyan;
+  letter-spacing: 1px;
 }
 form .row input:focus{
-  border-color: #16a085;
-  box-shadow: inset 0px 0px 2px 2px rgba(26,188,156,0.25);
+  border-color: cyan;
+  box-shadow: inset 0px 0px 2px 3px rgba(0, 247, 255, 0.219);
 }
 form .row input::placeholder{
   color: #999;
@@ -61,10 +62,10 @@ form .row input::placeholder{
   position: absolute;
   width: 47px;
   height: 100%;
-  color: #fff;
+  color: rgb(41, 41, 41);
   font-size: 18px;
-  background: #16a085;
-  border: 1px solid #16a085;
+  background: cyan;
+  border: 1px solid cyan;
   border-radius: 5px 0 0 5px;
   display: flex;
   align-items: center;
@@ -74,7 +75,7 @@ form .row input::placeholder{
   margin: -8px 0 20px 0;
 }
 .wrapper form .pass a{
-  color: #16a085;
+  color: cyan;
   font-size: 17px;
   text-decoration: none;
 }
@@ -82,7 +83,7 @@ form .row input::placeholder{
   text-decoration: underline;
 }
 .wrapper form .button input{
-  color: #fff;
+  color: rgb(41, 41, 41);;
   font-size: 20px;
   font-weight: 500;
   padding-left: 0px;
@@ -91,7 +92,7 @@ form .row input::placeholder{
   cursor: pointer;
 }
 form .button input:hover{
-  background: #12876f;
+  background: cyan;
 }
 .wrapper form .signup-link{
   text-align: center;
@@ -99,9 +100,16 @@ form .button input:hover{
   font-size: 17px;
 }
 .wrapper form .signup-link a{
-  color: #16a085;
+  color: rgb(255, 136, 0);
   text-decoration: none;
+  text-align: start;
+  font-size: 1rem;
 }
 form .signup-link a:hover{
   text-decoration: underline;
+}
+
+.errorMessage{
+  text-align: center;
+  color: red;
 }

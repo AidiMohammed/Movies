@@ -1,39 +1,25 @@
 import React,{useState,useEffect} from 'react';
 import '../styles/components/sidebar.css'
 import {Link} from 'react-router-dom'
-import {useDispatch,useSelector} from 'react-redux'
-import {onSerachString} from '../redux/SearchMulti/actionsSeach'
-import {GetDetails} from '../redux/account/actionsAccount'
+import {useSelector} from 'react-redux'
+import Serach from '../components/Search'
 
 function SideBar() 
 {
-    const dispatch = useDispatch();
-    const results = useSelector(state => state.searchModules);
 
-    const {islogin,detailsAccount} = useSelector(state => state.acountModules);
-    const [login,setLogin] = useState(islogin)
-    const [searchString,setSearchString] = useState("");
+    const {islogin,loding,detailsAccount} = useSelector(state => state.acountModules);
+
     const [togglesNavbar,setTogglesNavbar] = useState({
-            filmes_btn:false,
-            TVShows_btn:false,
-            persons_btn:false
+            filmes_btn: false,
+            TVShows_btn: false,
+            persons_btn: false
             });
 
-
-    useEffect(() =>{
-        setLogin(islogin);
-        const sessionID = localStorage.getItem("session_id");
-        dispatch(GetDetails(sessionID));
-    },[])
-
     useEffect(() => {
-        if(searchString != '')
-            dispatch(onSerachString(searchString,1));
-            console.log(results)
-    }, [searchString])
+        console.log('SIDE BAR SEATILES ACCOUNT : ',detailsAccount);
+    })
 
     useEffect(() =>{
-    
         const filmesSubmenu = document.querySelector(".filme-submenu");
         const TVShowsSubmenu = document.querySelector(".TVShow-submenu");
         const personSubmenu = document.querySelector(".person-submenu");
@@ -90,34 +76,28 @@ function SideBar()
 
     },[togglesNavbar])
 
-    const onChangeSearchString = e =>
-    {
-        setSearchString(e.target.value)
-    }
-
     const togglesSubMeunu=(e) =>
     {
-        setTogglesNavbar({...togglesNavbar,[e.target.name]: !togglesNavbar[e.target.name]})       
+        setTogglesNavbar({...togglesNavbar,[e.target.name]: !togglesNavbar[e.target.name]});       
     }
 
     const authentication =  islogin ? 
-                            <Link to="/logout">  
-                                <img src={`https://image.tmdb.org/t/p/w500/${detailsAccount.avatar.tmdb.avatar_path}`} alt="avatar user" />
-                                <h3>Se deconnecter</h3>
-                                <h6>user : {detailsAccount.username}</h6>
+                            <Link to={`/profile/${detailsAccount.username}`}>  
+                                {(detailsAccount.avatar.tmdb.avatar_path === undefined || detailsAccount.avatar.tmdb.avatar_path === null) ?<span className="fa fa-user-circle "></span> :<img src={`https://image.tmdb.org/t/p/w500/${detailsAccount.avatar.tmdb.avatar_path}`} alt={detailsAccount.username}/> }
                             </Link>
                             :
                             <Link to="/login"> 
                                 <span className="fa fa-user-circle "></span> 
                                 <h3>Se connecter</h3>
                             </Link>
+    const authenticationLoding = loding ? <div className="loding"><div className="lds-roller loding-sidebar"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div> : authentication
     return (
         <nav className="sidebar">
-            <div className="login">   
-                {authentication}
+            <div className="login">
+                {authenticationLoding}
             </div>
             <ul>
-                <li><Link className="buttons-sidebar" to="/">Home</Link></li>
+                <li><Link className="buttons-sidebar" to="/">Home </Link></li>
                 <li>
                     <a onClick={togglesSubMeunu} name="filmes_btn" className="filmes_btn buttons-sidebar">
                         Filmes
@@ -145,9 +125,11 @@ function SideBar()
                         <li><Link className="buttons-sidebar" to="/Person/popular">Les plus consultés</Link></li>
                     </ul>
                 </li>
+                <Serach/>
             </ul>
+            
         </nav>
     )
 }
 
-export default SideBar
+export default SideBar;

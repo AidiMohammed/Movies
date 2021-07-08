@@ -64,6 +64,7 @@ function Home()
 
     return (
         <div className="content-pages">
+            
             <div className="content-home">
                 <div className="header-home">
                     <h1 className="title-page">Filmes en tendance</h1>

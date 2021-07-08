@@ -6,6 +6,7 @@
     width: 330px;
     height: 100%;
     background: #1b1b1b;
+    transform: translateY(0px);
 }
 .sidebar .login{
     color: cyan;
@@ -93,6 +94,17 @@ nav ul{
 
 .sidebar .login img{
     width: 250px;
-    height: 250ps;
+    height: 250px;
     border-radius: 50%;
+}
+
+.sidebar .login .loding{
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+}
+
+.sidebar .login .loding-sidebar{
+    margin-top: 50%;
+    transform: translateY(-50%);
 }
