@@ -67,7 +67,7 @@ function Home()
             
             <div className="content-home">
                 <div className="header-home">
-                    <h1 className="title-page">Filmes en tendance</h1>
+                    <h1 className="title-page">Filmes en tendance.</h1>
                     <div className="container-buttons">
                         <button id="Day" onClick={toggleChoicePeriod} className="btn ">Aujourd'hui</button>
                         <button id="Week" onClick={toggleChoicePeriod} className="btn ">Cette semaine</button>                              

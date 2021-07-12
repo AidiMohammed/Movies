@@ -10,7 +10,6 @@
     width: 230px;
     border-radius: 3%;
     transition: 0.5s;
-    border: 2px solid yellow;
     
 }
 .title{
@@ -115,5 +114,38 @@
     background-color: transparent;
     color: goldenrod;
 }
-.link{
+
+.logStart{
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 75%;
+    margin-left: 62%;
+    margin-top: -35%;
+    z-index: 1;
+    border-radius: 10px;
+    background: rgba(24, 0, 241, 0.8);
+}
+.logStart i{
+    font-size: 18px;
+    margin: 0;
+    padding: 3px;
+    background-color: transparent;
+}
+
+.fa-star{
+    color: goldenrod
+}
+
+span{
+    background: transparent;
+}
+.fa-times-circle{
+    font-size: 5px;
+    color: rgb(197, 197, 197);
+    cursor: pointer;
+}
+
+.fa-times-circle:hover{
+    color: red
 }

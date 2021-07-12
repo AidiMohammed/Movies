@@ -15,10 +15,6 @@ function SideBar()
             persons_btn: false
             });
 
-    useEffect(() => {
-        console.log('SIDE BAR SEATILES ACCOUNT : ',detailsAccount);
-    })
-
     useEffect(() =>{
         const filmesSubmenu = document.querySelector(".filme-submenu");
         const TVShowsSubmenu = document.querySelector(".TVShow-submenu");
@@ -87,7 +83,7 @@ function SideBar()
                             </Link>
                             :
                             <Link to="/login"> 
-                                <span className="fa fa-user-circle "></span> 
+                                <span class="far fa-user-circle"></span> 
                                 <h3>Se connecter</h3>
                             </Link>
     const authenticationLoding = loding ? <div className="loding"><div className="lds-roller loding-sidebar"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div> : authentication

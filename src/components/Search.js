@@ -1,9 +1,10 @@
 import React,{useState,useEffect} from 'react'
 import '../styles/components/search.css'
 import {onSerachString} from '../redux/SearchMulti/actionsSeach'
-import {useDispatch} from 'react-redux'
+import {useDispatch,useSelector} from 'react-redux'
 
 function Search(props) {
+    const {results} = useSelector(state => state.searchModules)
     const [StringSearch, setStringSearch] = useState("");
     const dispatch =useDispatch()
 
@@ -13,6 +14,7 @@ function Search(props) {
 
     const onChangeSearchString = (e) =>{
         setStringSearch(e.target.value)
+        console.log(results)
     }
 
     return (
