@@ -10,8 +10,8 @@ function Login(props)
     const {session_id} = useSelector(state => state.acountModules)
 
     const [dataLogin,setDataLogin] = useState({
-        username: "MohammedAidi",
-        password: "hUYRfZg@GWRD5ac",
+        username: "",
+        password: "",
         error : ""
     })
 

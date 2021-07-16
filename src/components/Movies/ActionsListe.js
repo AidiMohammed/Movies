@@ -1,8 +1,8 @@
 import React,{useState,useEffect} from 'react'
 import axios from 'axios'
-import {useSelector} from 'react-redux'
+import {useSelector,useDispatch} from 'react-redux'
 import RatedStarts from './helpers/RatedStarts'
-import AddToList from './helpers/AddToList'
+import {DispatchRemoveMovieFromFavortiesMovies} from '../../redux/account/actionsAccount'
 
 function ActionsListe(props) 
 {
@@ -13,6 +13,8 @@ function ActionsListe(props)
         id: undefined,
         rated: {value: undefined},
         watchlist: undefined})
+
+    const dispatch = useDispatch()
 
     const [showStartRated,setShowStatRated] = useState(false)
     const [showAddToList,setShowAddToList] = useState(false)
@@ -51,6 +53,7 @@ function ActionsListe(props)
         axios.post(`https://api.themoviedb.org/3/account/${statesAccount.id}/favorite?api_key=c3e344079e651daccf822dba7e739968&session_id=${session_id}`,requestBody)
             .then(res => {
                 setStatesAccount({...statesAccount,favorite: !statesAccount.favorite})
+                dispatch(DispatchRemoveMovieFromFavortiesMovies(movie_id));
             })
             .catch(err => console.error(err.message))
     }

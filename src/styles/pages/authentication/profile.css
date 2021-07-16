@@ -1,0 +1,11 @@
+.header{
+}
+.header nav ul{
+    justify-content: center;
+    display: flex;
+}
+
+.header nav ul li .btn{
+    width: auto;
+    height: 35px;
+}

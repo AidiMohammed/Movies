@@ -1,0 +1,69 @@
+
+.center ,.content-modal{
+    position: absolute;
+    top: 35%;
+    left: 40%;
+    transform: translate(-50%,-50M);
+}
+
+.content-modal{
+    justify-content: center;
+    align-items: center;
+    width: 750px;
+    background: white;
+    box-shadow: 0 12px 12px 5px rgba(0, 0, 0, 0.692);
+}
+
+.overlay{
+    background: rgba(161, 161, 161, 0.74);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.fa-times{
+    position: absolute;
+    font-size: 35px;
+    right: 15px;
+    cursor: pointer;
+    color: rgb(255, 0, 0);
+}
+
+.hader-Modal-created-Liset{
+    display: flex;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+}
+
+.body-modal{
+    text-align: center;
+    background-color: transparent;
+}
+
+.body-modal input{
+    
+    margin: 15px;
+    width: 95%;
+    height: 50px;
+    background: rgb(54, 54, 54);
+    border: none;
+    font-size: 1rem;
+    float: left;
+    color: #bbbbbb;
+    padding-left: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.body-modal input:focus ,input:active{
+    border: none;
+    outline:none;
+    background: #474747;
+}
+.btn{
+    height: 35px;
+    background: transparent;
+}
