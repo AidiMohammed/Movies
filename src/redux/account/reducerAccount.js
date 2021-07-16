@@ -64,7 +64,6 @@ const reducerAccount = (state = initState, action) =>
             {
 
                 const newList = state.createdLists.filter((list) => list.id !== action.paylod && list)
-                console.log("new list : ",newList)
                 return {
                     ...state,
                     createdLists: newList

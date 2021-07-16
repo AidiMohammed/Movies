@@ -13,21 +13,16 @@ function Mylists({ShowListes})
     const [showModalCreatedList, setShowModalCreatedList] = useState(false)
 
     useEffect(() => {
-        console.log("*************************")
     }, [createdLists])
 
     useEffect(() =>
     {
-        console.log(createdLists)
         dispatch(DispatchGetListsCreated(detailsAccount.id,session_id))
     }, [])
 
     return (
         ShowListes &&
         <div className="mylistes">
-            {console.log("created Lists",createdLists)}
-            {console.log("details Account.id",detailsAccount.id)}
-            {console.log("session id",session_id)}
 
             <div className="header-mylists">
                 <h1>Mes Listes :</h1>

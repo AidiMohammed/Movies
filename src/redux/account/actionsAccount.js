@@ -115,8 +115,6 @@ export const DispatchGetListsCreated = (accountID,sessionID) =>
     {
         dispatch(Action_loding())
 
-        console.log("GET LIST CREATED ")
-
         axios.get(`https://api.themoviedb.org/3/account/${accountID}/lists?api_key=c3e344079e651daccf822dba7e739968&language=fr&session_id=${sessionID}&page=1`)
         .then(res => dispatch(Action_getListesCreated(res.data.results)))
         .catch(err => console.error(err.message))
@@ -127,15 +125,12 @@ export const DispatchDeletList = (listID,session_id) =>
 {
     return dispatch =>
     {
-        console.log("session id = ",session_id);
-        console.log("\nlist id = ",listID);
 
         dispatch(Action_deletListe(listID));
         axios.delete(`https://api.themoviedb.org/3/list/${listID}?api_key=c3e344079e651daccf822dba7e739968&session_id=${session_id}`)
         .then(res => 
         {
             dispatch(Action_deletListe(listID));
-            console.log(res);
         })
         .catch(err => console.error("ERR Action delet dispatch : ",err));
 
@@ -153,7 +148,6 @@ export const DispatchCreatedNewList = data =>
         }
         axios.post(`https://api.themoviedb.org/3/list?api_key=c3e344079e651daccf822dba7e739968&session_id=${data.session_id}`,requestBody)
             .then(res => {
-                console.log("res : ",res.data);//list_id
                 const newList = {
                     description: data.desc,
                     favorite_count: 0,
@@ -166,7 +160,7 @@ export const DispatchCreatedNewList = data =>
                 }
                 dispatch(Action_CreatedNewList(newList));
             })
-            .catch(err => console.log("ERR created new list: ",err.message))
+            .catch(err => console.error("ERR created new list: ",err.message))
     } 
 }
 
@@ -177,7 +171,7 @@ export const DispatchGetFavoritesMovies = (session_id,account_id) =>
             .then(res => {
                 dispatch(Action_GetFavoritesMovies(res.data.results))
             })
-            .catch(err => console.log("ERR : ",err.message))
+            .catch(err => console.error("ERR : ",err.message))
     }
 }
 
